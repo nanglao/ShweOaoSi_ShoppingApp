@@ -63,7 +63,7 @@ class SearchAdapter
     }
 
     override fun getItemViewType(position: Int): Int {
-        return if (list[position].item.equals()) {
+        return if (list[position].item?.isLoadingView!!) {
             typeLoad
         } else {
             typeData

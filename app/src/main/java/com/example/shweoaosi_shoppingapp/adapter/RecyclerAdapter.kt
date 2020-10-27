@@ -1,4 +1,4 @@
-package com.example.shweoaosi_shoppingapp
+package com.example.shweoaosi_shoppingapp.adapter
 
 import android.content.Context
 import android.util.Log
@@ -9,6 +9,9 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
+import com.example.shweoaosi_shoppingapp.activity.MainActivity
+import com.example.shweoaosi_shoppingapp.Product
+import com.example.shweoaosi_shoppingapp.R
 
 class RecyclerAdapter(private val context: Context,
                       private val list: ArrayList<Product>,

@@ -1,13 +1,14 @@
-package com.example.shweoaosi_shoppingapp
+package com.example.shweoaosi_shoppingapp.activity
 
 import android.os.Bundle
 import android.util.Log
-import android.widget.GridLayout
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.shweoaosi_shoppingapp.Product
+import com.example.shweoaosi_shoppingapp.R
+import com.example.shweoaosi_shoppingapp.adapter.RecyclerAdapter
 
 class MainActivity : AppCompatActivity() {
 
