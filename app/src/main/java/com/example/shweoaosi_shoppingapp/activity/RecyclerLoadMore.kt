@@ -87,6 +87,9 @@ class RecyclerLoadMore : AppCompatActivity(){
         }
 
         val hHashMap = LinkedHashMap<String, String> ()
+        hHashMap["x-rapidapi-host"] = "rakuten_webservice-rakuten-marketplace-item-ranking-v1.p.rapidapi.com"
+        hHashMap["x-rapidapi-key"] = "7dbeb5e4f5msh97d67917aa9f713p105327jsnc28d1541a3e8"
+        hHashMap["useQueryString"] = "true"
 
         val queryMap = LinkedHashMap<String, String> ()
 
