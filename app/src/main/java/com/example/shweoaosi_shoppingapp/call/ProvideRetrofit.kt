@@ -1,24 +1,24 @@
 package com.example.shweoaosi_shoppingapp.call
 
 import android.content.Context
-import com.example.shweoaosi_shoppingapp.BuildConfig
 import com.example.shweoaosi_shoppingapp.MyConstant
+import com.example.shweoaosi_shoppingapp.ui.login.SSLSocketClient
 import com.google.gson.GsonBuilder
 import com.readystatesoftware.chuck.ChuckInterceptor
+import com.squareup.picasso.BuildConfig
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
-
 class ProvideRetrofit {
+
     companion object {
         fun create(context: Context, removeLog: Boolean = false): ApiService {
             val baseUrl = MyConstant.BASE_URL
             val defaultTimeOut = 45L
 //            val defaultTimeOut = 10L
-
             fun release(): Retrofit {
                 return Retrofit.Builder()
                     .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
@@ -35,6 +35,8 @@ class ProvideRetrofit {
                         .connectTimeout(defaultTimeOut, TimeUnit.SECONDS)
                         .readTimeout(defaultTimeOut, TimeUnit.SECONDS)
                         .writeTimeout(defaultTimeOut, TimeUnit.SECONDS)
+                        .sslSocketFactory(SSLSocketClient.getSSLSocketFactory())
+                        .hostnameVerifier(SSLSocketClient.getHostnameVerifier())
 //                        .addInterceptor(ChuckInterceptor(context))
                         .build())
                     .build()
@@ -57,6 +59,8 @@ class ProvideRetrofit {
                             .connectTimeout(defaultTimeOut, TimeUnit.SECONDS)
                             .readTimeout(defaultTimeOut, TimeUnit.SECONDS)
                             .writeTimeout(defaultTimeOut, TimeUnit.SECONDS)
+                            .sslSocketFactory(SSLSocketClient.getSSLSocketFactory())
+                            .hostnameVerifier(SSLSocketClient.getHostnameVerifier())
 //                            .addInterceptor(ChuckInterceptor(context))
                             .build())
                         .build()
@@ -82,6 +86,8 @@ class ProvideRetrofit {
                             .readTimeout(defaultTimeOut, TimeUnit.SECONDS)
                             .writeTimeout(defaultTimeOut, TimeUnit.SECONDS)
                             .addInterceptor(ChuckInterceptor(context))
+                            .sslSocketFactory(SSLSocketClient.getSSLSocketFactory())
+                            .hostnameVerifier(SSLSocketClient.getHostnameVerifier())
                             .build())
                         .build()
                 }
