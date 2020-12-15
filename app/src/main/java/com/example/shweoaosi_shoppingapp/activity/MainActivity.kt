@@ -1,5 +1,6 @@
 package com.example.shweoaosi_shoppingapp.activity
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
@@ -29,6 +30,19 @@ class MainActivity : AppCompatActivity() {
         recyclerView.layoutManager = GridLayoutManager(this, 2, GridLayoutManager.VERTICAL, false)
         recyclerView.adapter = RecyclerAdapter(this, fetchList(), this)
         Log.e("LLL", "MainAci: ");
+
+        // The layout for this activity is a Data Binding layout so it needs to be inflated using
+        // DataBindingUtil.
+        val binding: ActivityMainBinding = DataBindingUtil.setContentView(
+            this, R.layout.activity_main)
+
+        // The returned binding has references to all the Views with an ID.
+        binding.observableFieldsActivityButton.setOnClickListener {
+            startActivity(Intent(this, ObservableFieldActivity::class.java))
+        }
+        binding.viewmodelActivityButton.setOnClickListener {
+            startActivity(Intent(this, ViewModelActivity::class.java))
+        }
     }
 
     private fun fetchList(): ArrayList<Product> {
